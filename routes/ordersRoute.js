@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { createOrder } from "../controllers/ordersController.js";
+import { createOrder, getAllOrders } from "../controllers/ordersController.js";
 import { validateSchema } from "../middlewares/schemaValidator.js";
 import orderSchema from "../schemas/ordersSchema.js";
 
@@ -7,6 +7,7 @@ import orderSchema from "../schemas/ordersSchema.js";
 const ordersRouter = Router();
 
 ordersRouter.post("/order", validateSchema(orderSchema), createOrder)
+ordersRouter.get("/orders", getAllOrders)
 
 
 
