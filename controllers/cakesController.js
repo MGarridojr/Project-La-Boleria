@@ -5,7 +5,7 @@ export async function createCake(req, res){
     const { name, price, description, image } = req.body
 
     try{
-        await cakesRepository.createCakeRepositoriy(name, price, description, image)
+        await cakesRepository.createCake(name, price, description, image)
         return res.sendStatus(201)
     } catch (error) {
         console.log(error)
@@ -15,7 +15,7 @@ export async function createCake(req, res){
 
 export async function getCakes(req, res){
     try{
-        const cakes = await cakesRepository.getCakesRepository()
+        const cakes = await cakesRepository.getCakes()
         return res.send(cakes)
     }  catch (error) {
         console.log("⚠ Error in getCakes",error)
