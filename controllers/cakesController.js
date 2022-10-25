@@ -9,6 +9,11 @@ export async function createCake(req, res){
         return res.sendStatus(201)
     } catch (error) {
         console.log(error)
+        if(error.detail.includes('already exists') == true){
+            return res  
+            .status(409)
+            .send(error.detail)
+          }
         return res.sendStatus(500)
     }
 }
